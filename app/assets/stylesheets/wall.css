@@ -1,0 +1,129 @@
+.brick, .half-brick{
+	height: 6em;
+	white-space: normal;
+	overflow-y: scroll;
+	ms-overflow-style: none;
+	margin: 0;
+	background: url("/assets/concrete.jpg");
+	text-align: center;
+	padding-top: 0.5em;
+	position: relative;
+	top:-100em;
+	animation-name: brick-fall;
+	animation-duration: 1.5s;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+}
+.brick p, .half-brick p{
+	font-size: 0.8em;
+	font-weight: bold;
+}
+#container{
+	height: 100%;
+}
+#main{
+	height: 100%;
+	position: relative;
+}
+#wall{
+	position: absolute;
+	bottom: 0;
+	border-collapse: collapse;
+}
+
+.brick::-webkit-scrollbar { width: 0 }
+.half-brick::-webkit-scrollbar { width: 0 }
+
+#bn-1{
+	animation-delay: 56s;
+}
+#bn-2{
+	animation-delay: 54s;
+}
+#bn-3{
+	animation-delay: 52s;
+}
+#bn-4{
+	animation-delay: 50s;
+}
+#bn-5{
+	animation-delay: 48s;
+}
+#bn-6{
+	animation-delay: 46s;
+}
+#bn-7{
+	animation-delay: 44s;
+}
+#bn-8{
+	animation-delay: 42s;
+}
+#bn-9{
+	animation-delay: 40s;
+}
+#bn-10{
+	animation-delay: 38s;
+}
+#bn-11{
+	animation-delay: 36s;
+}
+#bn-12{
+	animation-delay: 34s;
+}
+#bn-13{
+	animation-delay: 32s;
+}
+#bn-14{
+	animation-delay: 30s;
+}
+#bn-15{
+	animation-delay: 28s;
+}
+#bn-16{
+	animation-delay: 26s;
+}
+#bn-17{
+	animation-delay: 24s;
+}
+#bn-18{
+	animation-delay: 22s;
+}
+#bn-19{
+	animation-delay: 20s;
+}
+#bn-20{
+	animation-delay: 18s;
+}
+#bn-21{
+	animation-delay: 16s;
+}
+#bn-22{
+	animation-delay: 14s;
+}
+#bn-23{
+	animation-delay: 12s;
+}
+#bn-24{
+	animation-delay: 10s;
+}
+#bn-25{
+	animation-delay: 8s;
+}
+#bn-26{
+	animation-delay: 6s;
+}
+#bn-27{
+	animation-delay: 4s;
+}
+#bn-28{
+	animation-delay: 2s;
+}
+
+@keyframes brick-fall{
+	from{
+		top: -100em;
+	}
+	to{
+		top: 0;
+	}
+}
