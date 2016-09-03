@@ -15,3 +15,14 @@
  *= require foundation_and_overrides
 
  */
+
+.header {
+	text-align: center;
+	padding: 3% 0%;
+}
+	.header img {
+		border-radius: 50%;
+	}
+
+
+

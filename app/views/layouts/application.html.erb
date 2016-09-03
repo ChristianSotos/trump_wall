@@ -4,16 +4,24 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Donald's Wall" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-
   <body>
-
+   <div class="header row">
+    <div class="small-2 column" data-equalizer>
+      <%= image_tag("trumpbigmouth.jpg") %>
+    </div>
+    <div class="small-8 column" data-equalizer-watch>
+      <h1>Donald's Wall</h1>
+      <h4>Real Quotes from Trump's Election Campaign</h4>
+    </div>
+    <div class="small-2 column" data-equalizer-watch>
+    </div>
+   </div>
     <%= yield %>
-
   </body>
 </html>

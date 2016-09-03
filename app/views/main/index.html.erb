@@ -2,22 +2,50 @@
 <html>
 <head>
 	<title>Main Page</title>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$.get("http://content.guardianapis.com/search?tag=us-news/donaldtrump&api-key=bc61bc72-7b6b-4045-b1ce-b3b9e18e26fd", function(res){
+				console.log(res);
+				for (var i = 0; i < res.response.results.length; i++) {
+					var date = new Date(res.response.results[i].webPublicationDate);
+					date = date.toLocaleDateString("en-US");
+					$('#news').append("<div class='news-story'><a href='"+res.response.results[i].webUrl+"'><h5>"+res.response.results[i].webTitle+"</h5></a><p>Published on "+date+"</p></div>")
+				}
+			$(document).on('submit', '#insult-form', function(res){
+				var name = $('#insult-name').val();
+				$.get("https://api.whatdoestrumpthink.com/api/v1/quotes/personalized?q="+name, function(res){
+					$('#personal-insult').html("<p>'"+res.message+"'</p>")
+					});
+				return false;
+				});
+			});
+		});
+	</script>
 </head>
 <body>
+<a href="link"> </a>
 	<div id='container' class='row'>
-	<div id='main' class='small-12 large-8 column'>
-		<div id='wall'>
-			
+		<div id='main' class='small-12 large-8 column'>
+			<div id='wall'>
+			</div>
 		</div>
-	</div>
-	<div id='side' class='small-12 large-4 column'>
-		<div id='insult'>
-		<h1>Insult</h1>
+		<div id='side' class='small-12 large-4 column'>
+			<div id='insult'>
+			<h3>Insults by Donald</h3>
+			<p>Enter a name and create a personalized insult from The Donald himself!</p>
+			<form id="insult-form">
+				<input id="insult-name" type="text" name="name" placeholder="Enter a Name">
+				<input type="submit" value="Create Insult">
+				<div id="personal-insult"></div>
+			</form>
+			</div>
+			<h3>Election News</h3>
+			<div id='news'>
+			</div>
 		</div>
-		<div id='news'>
-		<h1>News</h1>
-		</div>
-	</div>
 	</div>
 </body>
 </html>
+
+<img src="http://img.huffingtonpost.com/asset/scalefit_970_noupscale/57b5e1ee170000d002d1f9f9.jpeg?cache=64ijbb1nyf" itemprop="image">
+http://img.huffingtonpost.com/asset/scalefit_970_noupscale/57b5e1ee170000ae02c74016.jpeg
