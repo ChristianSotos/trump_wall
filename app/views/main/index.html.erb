@@ -4,6 +4,43 @@
 	<title>Main Page</title>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			var row = 0;
+			var bNum = 1;
+			for (var i = 0; i < 8; i++){
+				if(row % 2 == 0){
+					var starter = 1;
+				} else {
+					var starter = 0;
+				}
+				if (starter == 1){
+					$('#wall').append("<div class='small-2 large-2 column half-brick' id='bn-"+bNum+"'></div>");
+				}
+				bNum++;
+				for(var j = starter; j < 3; j++){
+					// $('#wall').append("<div class='large-4 column brick'><p>Full Brick</p></div>");
+					var id = "bn-"+bNum;
+					bNum++;
+					$('#wall').append("<div class='small-4 large-4 column brick' id="+id+"></div>");
+				}
+				if (starter == 1){
+					$('#wall').append("<div class='small-2 large-2 column half-brick' id='bn-"+bNum+"'></div>");
+				}
+				row++;
+			}
+			var i=28;
+			var randQuoteSrc = "https://api.whatdoestrumpthink.com/api/v1/quotes/random";
+			(function setQuotes(){
+				if (i <= 0) return;
+				setTimeout(function(){
+					var idStr = "#bn-"+i;
+					console.log(idStr);
+					$.get(randQuoteSrc, function(res){
+						$(idStr).html("<p>"+res.message+"</p>")
+					})
+					setQuotes();
+					i--;
+				}, 1000)
+			})();
 			$.get("http://content.guardianapis.com/search?tag=us-news/donaldtrump&api-key=bc61bc72-7b6b-4045-b1ce-b3b9e18e26fd", function(res){
 				console.log(res);
 				for (var i = 0; i < res.response.results.length; i++) {
@@ -19,7 +56,7 @@
 				return false;
 				});
 			});
-		});
+		})
 	</script>
 </head>
 <body>
